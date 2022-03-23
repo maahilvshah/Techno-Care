@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<link rel="icon" href="../images/Health Care.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> BMI Calculator </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+        #vki{
+            transition: 1s all;
+        }
+    
+    </style>
+</head>
+ 
+	<body style="background-color: blue;">
+        <div class="container">
+            <center><h1 style="color: red;">BODY MASS INDEX (BMI)</h1></center>
+            <form>
+                <div class="form-group">
+                  <label style="color: red;" for="height">Please Enter your Height in Inches :</label>
+                  <input type="text" class="form-control" id="height" placeholder="00">
+                </div>
+                <div class="form-group">
+                  <label style="color: red;" for="weight">Please Enter Your Weight In Kg</label>
+                  <input type="text" class="form-control" id="weight" placeholder="00">
+                </div>
+              </form>
+              <div class="alert alert-primary" role="alert" id="bmi">
+                Body Mass Index
+            </div>
+          </div>  
+    
+    <script>
+        
+        const height =document.querySelector("#height")
+        const weight =document.querySelector("#weight")
+        const vki =document.querySelector("#vki")
+        
+        height.addEventListener('input',vkiHesapla);
+        weight.addEventListener('input',vkiHesapla);
+        
+        function vkiHesapla()
+        {
+            h=height.value
+            w=weight.value
+            index = w/(h*h)* 703;
+            index=index.toFixed(2)
+ 
+            if (index < 18.5) {
+                bmi.innerHTML="underweight - BMI : " + index  
+                bmi.setAttribute("class","alert alert-secondary")
+            } else if (index < 25) {
+                bmi.innerHTML="normal - BMI : "+ index  
+                bmi.setAttribute("class","alert alert-success")
+            } else if (index < 30) {
+                bmi.innerHTML="overweight - BMI : " + index  
+                bmi.setAttribute("class","alert alert-warning")
+            } else {
+                bmi.innerHTML="obese - BMI : " + index  
+                bmi.setAttribute("class","alert alert-danger")
+            }
+        }
+    </script>
+    <br>
+    <br>
+   <h5><center><a style="color: red;" href="../index.html">Back Home</a></center></h5>
+</body>
+</html>
